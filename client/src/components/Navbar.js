@@ -8,7 +8,7 @@ const styles = {
   heading: {
     background: "#006400",
     minHeight: 50,
-    lineHeight: 3.5,
+    lineHeight: 2.5,
     fontSize: "2.0rem",
     color: "white",
     padding: "0 20px"
