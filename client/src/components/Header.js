@@ -1,13 +1,15 @@
 import React from "react";
-//import "../components/styles/Header.css";
+import "../../src/styles/Header.css";
 
 function Header() {
   return (
     <header className="header">
-      <h1>Header: Maps here</h1>
-      <p>
-       header text
-      </p>
+      <h1>Header: Maps placeholder</h1>
+ 
+      <div className="card-body">
+        <p className="card-text">
+        </p>
+      </div>
     </header>
   );
 }

@@ -3,12 +3,11 @@ import "./style.css";
 
 function Jumbotron() {
   return (
-    <div className="jumbotron text-center">
-      <h1>Jumbotron</h1>
-      <a target="_blank" >
-        text inside jumbotron
-      </a>
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Jumbotron</h1>
+      <p class="lead">Modified jumbotron occupies the entire horizontal space of parent.</p>
     </div>
+
   );
 }
 

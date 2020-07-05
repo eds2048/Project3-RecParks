@@ -7,6 +7,12 @@ import Jumbotron from "./components/Jumbotron";
 import { Container, Row, Col} from "./components/Grid";
 import Footer from "./components/Footer";
 import Card from "./components/Grid/Card";
+import ParkDetails from "./components/Grid/ParkDetails";
+import ParkPhoto from "./components/Grid/ParkPhoto";
+import ParkAddress from "./components/Grid/ParkAddress";
+import ParkRating from "./components/Grid/ParkRating";
+
+
 
 
 function App() {
@@ -19,26 +25,43 @@ function App() {
 
       {/* Start first row */}
       <Row>
-        <Col size="xs-9 sm-10">
-          <Card>
-          </Card>
+        <Col size="sm-12">
+          <ParkDetails>
+          </ParkDetails>
         </Col>
-        <Col size="xs-9 sm-10">
-            <Card>
-            </Card>
+      </Row>
+
+      {/* Start second row */}
+      <Row>
+        <Col size="sm-4">
+            <ParkPhoto>
+            </ParkPhoto>
+        </Col>
+        <Col size="sm-4">
+            <ParkAddress>
+            </ParkAddress>
+        </Col>
+        <Col size="sm-4">
+            <ParkRating>
+            </ParkRating>
         </Col>  
       </Row>
 
       {/* Start second row */}
       <Row>
-        
-      <Col size="xs-9 sm-10">
-            <Card>
-            </Card>
-      </Col>
-          <Col size="xs-9 sm-10">
-        
-      </Col>
+        <Col size="sm-4">
+          <Card>
+          </Card>
+        </Col>
+
+        <Col size="sm-4">
+          <Card>
+          </Card>
+        </Col>
+        <Col size="sm-4">
+          <Card>
+          </Card>
+        </Col>
       </Row>
 
 
@@ -50,3 +73,5 @@ function App() {
 }
 
 export default App;
+
+
