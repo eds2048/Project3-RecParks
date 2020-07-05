@@ -1,24 +1,38 @@
 import React from "react";
-import "../../src/styles/Navbar.css";
+import Logo from "../components/nyc_parks.png";
 
-
+const styles = {
+  card: {
+    background: "#e8eaf6"
+  },
+  heading: {
+    background: "#006400",
+    maxHeight: 50,
+    fontSize: "2.0rem",
+    color: "white",
+    padding: "0 10px",
+    width: "auto"
+  },
+  login: {
+    marginRight: 20,
+    textAlign: "right",
+  },
+  logo: {
+    maxHeight: 40,
+    position: "relative",
+    paddingBottom: "3px"
+  }
+};
 
 function Navbar() {
   return (
-
-  
-  
-    <header className="navbar">
-      <h1>Navbar</h1>
-
-      <div className="card-body">
-        <p className="card-text">
-        </p>
-      </div>
-    </header>
-  
-
+    <div style={styles.card}>
+      <div style={styles.login}> Login / Logout </div>
+      <div style={styles.heading}>Welcome!<img src={Logo} alt="nyc_parks_logo" style={styles.logo}/></div>
+    </div>
   );
 }
 
 export default Navbar;
+
+{/* <div style={styles.login}> <Link to="/Login">Login </Link> / <Link to="/logout">Logout </Link></div> */}

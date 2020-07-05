@@ -1,10 +1,23 @@
 import React from "react";
 import "../../src/styles/Footer.css";
 
+const styles = {
+  footer: {
+    textAlign: "center",
+    backgroundColor: "gray",
+    color: "white",
+    marginTop: "20px",
+    paddingTop: "12px",
+    position: "absolute",
+    left: 0,
+    right: 0
+  },
+}
+
 function Footer() {
   return (
-    <footer className="footer">
-      <h1>Footer </h1>
+    <footer style={styles.footer}>
+      <p>Recs & Park Inc. || 2020 &copy; </p>
     </footer>
   );
 }

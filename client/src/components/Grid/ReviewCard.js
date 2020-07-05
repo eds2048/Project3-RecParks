@@ -1,20 +1,20 @@
 import React from "react";
+import "./style.css";
 
-function Card() {
+function ReviewCard() {
     return (
         <div className="card">
             <div className="card-header">
-                <h3 className="card-title">Card 1</h3>
-            </div>
-            <div className="card-header">
-                <h3 className="card-title">Card 2</h3>
+                <p className="card-title">Leave A Review!</p>      
             </div>
             <div className="card-body">
                 <p className="card-text">
+                    <input className="review"></input>
+                    <button className="submitButton"> Submit </button>
                 </p>
             </div>
         </div>
 
     );
 }
-export default Card;
+export default ReviewCard;

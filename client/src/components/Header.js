@@ -1,15 +1,26 @@
 import React from "react";
-import "../../src/styles/Header.css";
+// import "./components/styles/Header.css";
+
+const styles = {
+
+  header: {
+    height: "90px",
+  },
+  h2: {
+    margin: 0,
+    textAlign: "center",
+    paddingTop: "3px",
+    color: "#006400",
+    fontSize: "3rem",
+  }
+}
 
 function Header() {
   return (
-    <header className="header">
-      <h1>Header: Maps placeholder</h1>
- 
-      <div className="card-body">
-        <p className="card-text">
-        </p>
-      </div>
+    <header style={styles.header}>
+      <h2 style={styles.h2}>Recs & Park</h2>
+      <p style={{textAlign: "center", color: "#006400"}}>In Partnership with the NYC Parks Department
+      </p>
     </header>
   );
 }
