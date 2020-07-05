@@ -1,4 +1,14 @@
 .jumbotron {
-  min-height: 300px;
-  padding-top: 100px;
+  margin: auto;
+
 }
+
+.select {
+  float: right;
+  margin-right: 40px;
+}
+
+.table tr {
+  width: 50px
+}
+

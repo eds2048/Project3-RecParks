@@ -1,0 +1,21 @@
+.card {
+    margin-top: 20px;
+    max-width: 75%;
+}
+
+.mapButton {
+    border-radius: 15%;
+}
+
+.submitButton {
+    border-radius: 15%;
+}
+
+.review {
+    width: 85%;
+    margin-right: 5px;
+}
+
+.select {
+    border-color: black;
+}
