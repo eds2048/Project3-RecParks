@@ -4,7 +4,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Jumbotron from "./components/Jumbotron";
-import { Container, Row, Col } from "./components/Grid";
+import { Container, Row, Col} from "./components/Grid";
+import Footer from "./components/Footer";
+import Card from "./components/Grid/Card";
 
 
 function App() {
@@ -14,16 +16,35 @@ function App() {
       <Navbar />
       <Header />
       <Container>
+
+      {/* Start first row */}
       <Row>
-          Here's a Row
         <Col size="xs-9 sm-10">
-          Column 1
+          <Card>
+          </Card>
         </Col>
         <Col size="xs-9 sm-10">
-          Column 2
+            <Card>
+            </Card>
         </Col>  
       </Row>
+
+      {/* Start second row */}
+      <Row>
+        
+      <Col size="xs-9 sm-10">
+            <Card>
+            </Card>
+      </Col>
+          <Col size="xs-9 sm-10">
+        
+      </Col>
+      </Row>
+
+
+
       </Container>
+      <Footer />
     </div>
   );
 }
