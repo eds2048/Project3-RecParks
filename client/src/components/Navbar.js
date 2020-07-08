@@ -27,7 +27,9 @@ const styles = {
 function Navbar() {
   return (
     <div style={styles.card}>
-      <div style={styles.login}> Login / Logout </div>
+      <row>
+      <div style={styles.login}><a href="./login" > Login </a></div> 
+      </row>
       <div style={styles.heading}>Welcome!<img src={Logo} alt="nyc_parks_logo" style={styles.logo}/></div>
     </div>
   );
