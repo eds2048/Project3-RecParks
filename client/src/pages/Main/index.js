@@ -1,8 +1,8 @@
 import React from "react";
-import "./style.css";
+import "./index.css";
 import Map from "./map_placeholder.png"
 
-function Jumbotron() {
+function Main() {
   return (
     <div className="jumbotron">
       <div className="row">
@@ -45,4 +45,4 @@ function Jumbotron() {
   );
 }
 
-export default Jumbotron;
+export default Main;
