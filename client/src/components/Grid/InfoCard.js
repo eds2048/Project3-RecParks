@@ -4,13 +4,15 @@ import "./style.css";
 function infoCard () {
     return (
         <div className="card">
-            <div className="card-header">
-                <p className="card-title">Additional Details</p>      
-            </div>
             <div className="card-body">
                 <p className="card-text"> Address: </p>
                 <p className="card-text"> Rating: </p>
-                <button className="mapButton"> Map </button>
+                <p className="card-text"> Reviews: </p>
+                <ul style={{listStyleType: "none", fontStyle: "italic"}}>
+                    <li> "This is my favorite park!" - parkgirl123 </li>
+                    <li> "Great for social distancing" - iloveny </li>
+                    <li> "10/10 would recommend" - soccer426 </li>
+                </ul>
             </div>
         </div>
 

@@ -1,14 +1,11 @@
 import React from "react";
-import "../../src/styles/Footer.css";
 
 const styles = {
   footer: {
     textAlign: "center",
     backgroundColor: "gray",
     color: "white",
-    marginTop: "20px",
-    paddingTop: "12px",
-    position: "absolute",
+    position: "relative",
     left: 0,
     right: 0
   },
