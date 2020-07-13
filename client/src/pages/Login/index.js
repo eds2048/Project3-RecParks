@@ -1,38 +1,96 @@
-import React from "react";
-import "./index.css";
+import React, { Component } from 'react';
+import { user as userAPI } from '../../utils/API';
+import { Redirect } from 'react-router-dom';
+import { Col, Row, Container } from '../../components/Grid';
+import { Input, FormBtn } from '../../components/Form';
+import Card from '../../components/Card';
+import styles from './index.css';
+import validateUser from "../../utils/validateUser";
 
-function Login() {
-  return (
-    <div className="container">
-      <form>
-      <div className="form-row">
-        <div className="col-md-6">
-        <label for="exampleInputEmail1">Email Address</label>
-        <input type="email" class="form-control" id="email-input" placeholder="example@email.com">
-          </input>
-        </div>
-      </div>
-      <div className="form-row">
-      <div className="col-md-6">
-        <br />
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="password-input" placeholder="Password!123">
-          </input>
-        </div>
-      </div>
-      <br />
-      <div className="form-row">
-        <div className="col-sm-10">
-        <button type="submit" class="btn btn-default ">Login</button>
-        </div>
-        <div className="col-sm-10">
-        <p class="signUp"><a href="/signup">Or Sign Up Here!</a></p>
-        </div>
-      </div>   
-      </form>
-    </div>
+class Login extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			email: '',
+			password: ''
+		};
+	}
 
-  );
+	handleInputChange = event => {
+		const { name, value } = event.target;
+		this.setState({
+			[name]: value.trim()
+		});
+	};
+
+	handleFormSubmit = event => {
+		event.preventDefault();
+		if (this.state.email && this.state.password) {
+			console.log(this.state.email);
+
+			// set loading state
+			this.props.setLoading(true);
+
+			userAPI
+				.login({
+					email: this.state.email,
+					password: this.state.password
+				})
+				.then(res => {
+					if (res.status === 200) {
+						console.log(res.status);
+						this.props.setLoading(false);
+						this.props.setUser(res.data);
+					}
+				})
+				.catch(res => {
+					this.props.setLoading(false);
+					console.warn(res.response.data);
+					this.props.setAlertInfo({
+						theme: 'warning',
+						message: res.response.data
+					});
+				});
+		}
+	};
+
+	render() {
+		return (
+			<Container fluid>
+				<Row>
+					<Col size='12'>
+						<Card title='Login'>
+							<form className={styles.form} onSubmit={this.handleFormSubmit}>
+								<Input
+									value={this.state.email}
+									onChange={this.handleInputChange}
+									name='email'
+									placeholder='email (required)'
+								/>
+								<Input
+									value={this.state.password}
+									onChange={this.handleInputChange}
+									name='password'
+									placeholder='(required)'
+									type='password'
+								/>
+
+								<FormBtn
+									disabled={!(this.state.email && this.state.password)}
+									onClick={this.handleFormSubmit}
+								>
+									Log in
+								</FormBtn>
+							</form>
+						</Card>
+					</Col>
+				</Row>
+
+				{/* Redirect on authentication */}
+				{ validateUser(this.props.user) && <Redirect to='/home' /> }
+			</Container>
+		);
+	}
 }
 
 export default Login;
