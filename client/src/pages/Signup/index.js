@@ -84,7 +84,7 @@ class Signup extends Component {
 									disabled={!(this.state.email && this.state.password)}
 									theme='primary'
 								>
-									signup
+									Sign Up
 								</FormBtn>
 							</form>
 						</Card>

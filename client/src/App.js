@@ -15,6 +15,7 @@ import './App.css';
 function App() {
 	const [user, setUser] = useState({});
 	const [loading, setLoading] = useState(false);
+	const [ThreeParks, setThreeParks] = useState({});
 
    useEffect(() => {
 		// no catch, add if you want to check for it.
@@ -26,7 +27,6 @@ function App() {
    }, []);
    
 	return (
-		<>
 			<Router>
 				<Route render={ props => 
 					<Navbar user={user} setUser={setUser} {...props} />
@@ -36,8 +36,11 @@ function App() {
 						exact
 						path='/'
 						render={ props => (
-							<Main/>
-						)}
+							<Main
+							{...props}
+							{...{ user, setUser, setLoading, setThreeParks}} 	
+					/>
+					)}
 					/>
 					<Route
 						exact
@@ -66,6 +69,7 @@ function App() {
 						path='/AddReview'
 						render={ props => (
 							<AddReview
+							{...{ user, setUser, setLoading}} 
 								/>
 						)}
 					/>
@@ -73,8 +77,6 @@ function App() {
 					<Route component={NoMatch} />
 				</Switch>
 			</Router>
-			
-		</>
 	);
 }
 
