@@ -7,5 +7,9 @@ export default {
 
   lastThreeParks: function () {
     return axios.get("/api/review/lastThreeReviews")
+  },
+
+  pullParkReviews: function (park_id) {
+    return axios.post("/api/review/pullParkReviews", {park_id: park_id})
   }
 }

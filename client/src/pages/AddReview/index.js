@@ -47,7 +47,6 @@ class AddReview extends Component {
     this.state.review_text.trim())
     // if good to go
     reviewAPI
-    
 				.addReview({
 					park_id: this.state.park_id.trim(),
           overall_rating: this.state.overall_rating,
@@ -55,23 +54,14 @@ class AddReview extends Component {
           cleanliness_rating: this.state.cleanliness_rating,
           activities_rating: this.state.activities_rating,
           review_text: this.state.review_text.trim()
-				})
+        })
 				.then(res => {
-					if (res.status === 200) {
-						this.props.setLoading(false);
-						this.props.setUser(res.data);
-						return <Redirect to='/home' />;
-					} else {
-						console.log(res.response)
-						this.props.setLoading(false);
-						// this.props.setAlertInfo({
-						// 	theme: 'warning',
-						// 	message: res.response.data.message
-						// });
-					}
+          console.log("pretzel")
+          return <Redirect to={'/home'} />;
 				})
 				.catch(res => {
-					this.props.setLoading(false);
+          console.log("catchpretzel")
+          return <Redirect to={'/home'} />;
 					// this.props.setAlertInfo({ theme: 'warning', message: res.response.data });
 				});
 	};
@@ -80,8 +70,8 @@ class AddReview extends Component {
     return (
       <form className={styles.form} onSubmit={this.handleFormSubmit}>
       <div className="form-group">
-        <label htmlFor="park">Park Name:</label>
-        <Input
+      <label htmlFor="park">Park Name:</label>
+      <Input
           value={this.state.park_id}
           onChange={this.handleInputChange}
           name="park_id"
@@ -93,8 +83,7 @@ class AddReview extends Component {
         />
         <datalist id="parks">
           {parksData.map(parksData => (
-          <option hidden selected value = {parksData.park_id}>{JSON.stringify(parksData.park_name).replace(/['"]+/g, '')}</option>)
-
+          <option value={parksData.park_id}>{JSON.stringify(parksData.park_name).replace(/['"]+/g, '')}</option>)
           )}
         </datalist>
 
@@ -107,7 +96,7 @@ class AddReview extends Component {
         <option value="5">5</option>
         </select>
         <br></br>
-        <label htmlFor="accessibility">Facilities Quality: (1 = worst, 5 = best)</label>
+        <label htmlFor="accessibility">Accessibility Rating: (1 = worst, 5 = best)</label>
         <select id="accessibility_rating" name="accessibility_rating" value={this.state.accessibility_rating} onChange={this.handleInputChange}>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -116,7 +105,7 @@ class AddReview extends Component {
         <option value="5">5</option>
         </select>
         <br></br>
-        <label htmlFor="cleanliness">Facilities Quality: (1 = worst, 5 = best)</label>
+        <label htmlFor="cleanliness">Cleanliness Rating: (1 = worst, 5 = best)</label>
         <select id="cleanliness_rating" name="cleanliness_rating" value={this.state.cleanliness_rating} onChange={this.handleInputChange}>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -129,7 +118,7 @@ class AddReview extends Component {
         <select id="activities_rating" name="activities_rating" value={this.state.activities_rating} onChange={this.handleInputChange} default="3">
         <option value="1">1</option>
         <option value="2">2</option>
-        <option value ="3">3</option>
+        <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
         </select>
@@ -147,7 +136,7 @@ class AddReview extends Component {
           class="reviewInput"
         />
         <br></br>
-        <FormBtn type="submit" className="btn btn-success">
+        <FormBtn type="submit" className="btn btn-success" >
           Add Review
         </FormBtn>
       </div>
