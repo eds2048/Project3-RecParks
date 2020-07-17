@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+import ParkReviews from './pages/ParkReviews';
 import AddReview from './pages/AddReview';
 
 import Main from './pages/Main';
-
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
@@ -15,7 +16,7 @@ import './App.css';
 function App() {
 	const [user, setUser] = useState({});
 	const [loading, setLoading] = useState(false);
-	const [ThreeParks, setThreeParks] = useState({});
+	// const [ThreeParks, setThreeParks] = useState({});
 
    useEffect(() => {
 		// no catch, add if you want to check for it.
@@ -38,7 +39,7 @@ function App() {
 						render={ props => (
 							<Main
 							{...props}
-							{...{ user, setUser, setLoading, setThreeParks}} 	
+							{...{ user, setUser, setLoading}} 	
 					/>
 					)}
 					/>
@@ -69,6 +70,15 @@ function App() {
 						path='/AddReview'
 						render={ props => (
 							<AddReview
+							{...{ user, setUser, setLoading}} 
+								/>
+						)}
+					/>
+					<Route
+						exact
+						path='/ParkReviews'
+						render={ props => (
+							<ParkReviews
 							{...{ user, setUser, setLoading}} 
 								/>
 						)}

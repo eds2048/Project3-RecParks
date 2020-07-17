@@ -19,17 +19,28 @@ module.exports = {
       });
    },
 
-   lastThreeReviews: () => {
-      return new Promise ((resolve, reject) => {
+   lastThreeReviews: (req, res) => {
+       return new Promise ((resolve, reject) => {
          db.Review.findAll({
          limit: 3 ,
          order: [ ['createdAt',  'DESC'] ]
-      })
+       })
       .then(result => {
-         console.log(result[0].dataValues)
-         return JSON.stringify(result);
+         res.json(result)
       })
-   })}
+})
+},
 
+   pullParkReviews: (req, res) => {
+   return new Promise ((resolve, reject) => {
+     db.Review.findAll({
+      where: {park_id: req.body.park_id}
+   })
+  .then(result => {
+     console.log(result)
+     res.json(result)
+  })
+ })
 }
+} 
 
