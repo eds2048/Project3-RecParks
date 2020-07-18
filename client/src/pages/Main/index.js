@@ -3,6 +3,9 @@ import style from "./index.css";
 import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI, addReview } from '../../utils/API';
 
+import LeafletMap from "../../components/LeafletMap";
+
+
 class Main extends Component {
 
   firstPark = parksData[Math.floor(Math.random() * Math.floor(1982))]
@@ -81,6 +84,10 @@ render(){
       </div>
 
       <div className="jumbotron text-center">
+
+          <LeafletMap></LeafletMap>
+
+
       <h1>Three most recent park reviews!</h1>
     </div>
 
