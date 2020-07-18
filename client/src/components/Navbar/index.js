@@ -47,10 +47,12 @@ let location = useLocation();
 				
 			</Link>
 			{ props.user.id 
-				?  <a> <Link to='/addReview'><Button theme='primary'>Add Park Review</Button></Link>
+				?  <a> <Link to='/'><Button theme='primary'>Home</Button></Link> 
+					<Link to='/addReview'><Button theme='primary'>Add Park Review</Button></Link>
 					 <Link to='/parkReviews'><Button theme='primary'>View Park Reviews</Button></Link>
 					<Button theme='dark' onClick={signout}>Sign Out</Button></a>
-				:   <a><Link to='/login'><Button theme='primary'>Log In</Button></Link>
+				:   <a> <Link to='/'><Button theme='primary'>Home</Button></Link> 
+					<Link to='/login'><Button theme='primary'>Log In</Button></Link>
 					<Link to='/signup'><Button theme='primary'>Sign Up</Button></Link></a>
 			}
 		</div>

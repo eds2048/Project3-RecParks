@@ -4,6 +4,9 @@ import styles from "./index.css";
 import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI } from '../../utils/API';
 import { Input, FormBtn } from '../../components/Form';
+ 
+//withrouter
+//wrap export.default
 
 class AddReview extends Component {
   constructor(props) {
@@ -56,11 +59,11 @@ class AddReview extends Component {
           review_text: this.state.review_text.trim()
         })
 				.then(res => {
-          console.log("pretzel")
+          console.log("success")
           return <Redirect to={'/home'} />;
 				})
 				.catch(res => {
-          console.log("catchpretzel")
+          console.log("failure")
           return <Redirect to={'/home'} />;
 					// this.props.setAlertInfo({ theme: 'warning', message: res.response.data });
 				});
