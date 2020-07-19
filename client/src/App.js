@@ -5,6 +5,7 @@ import ParkReviews from './pages/ParkReviews';
 import AddReview from './pages/AddReview';
 
 import Main from './pages/Main';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';

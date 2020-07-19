@@ -6,6 +6,7 @@ import { Input, FormBtn } from '../../components/Form';
 import Card from '../../components/Card';
 import styles from './index.css';
 import validateUser from "../../utils/validateUser";
+import Background from "../parks_login.jpg";
 
 class Login extends Component {
 	constructor(props) {
@@ -59,7 +60,7 @@ class Login extends Component {
 			<Container fluid>
 				<Row>
 					<Col size='12'>
-						<Card title='Login'>
+						<Card>
 							<form className={styles.form} onSubmit={this.handleFormSubmit}>
 								<Input
 									value={this.state.email}
@@ -85,6 +86,12 @@ class Login extends Component {
 						</Card>
 					</Col>
 				</Row>
+				<Row>
+					<Col size='12'>
+					{/* <img src={Background} style={{height: 300, width: "auto"}}/> */}
+					</Col>
+				</Row>
+
 
 				{/* Redirect on authentication */}
 				{ validateUser(this.props.user) && <Redirect to='/home' /> }

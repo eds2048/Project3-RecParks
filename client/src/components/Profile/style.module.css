@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.profile {
+    background-image: url('../../pages/nyc_parks.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,14 +1,23 @@
-.jumbotron {
-  margin: auto;
-
+body, html {
+  background-color: #f9fafc;
+  height: 100%
 }
 
-.select {
-  float: right;
-  margin-right: 40px;
+.bg {
+  background-image: url('https://pentagram-production.imgix.net/0cf790ca-2e3f-4557-9677-53f176f8f54c/nyc_parks_2019_blog_update.jpg?crop=edges&fit=crop&h=630&rect=0%2C59%2C3000%2C1872&w=1200');
+  height: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.table {
+  max-width: 100%;
+  padding: 20px;
+
+}
 .table tr {
   width: 50px
 }
+
 

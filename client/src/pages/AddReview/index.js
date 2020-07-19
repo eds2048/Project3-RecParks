@@ -4,6 +4,9 @@ import styles from "./index.css";
 import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI } from '../../utils/API';
 import { Input, FormBtn } from '../../components/Form';
+import {Container, Row, Col } from "react-bootstrap";
+import Background from "../parks_login.jpg";
+import logo from '../nyc_parks.png';
 
 class AddReview extends Component {
   constructor(props) {
@@ -68,81 +71,94 @@ class AddReview extends Component {
 
   render() {
     return (
-      <form className={styles.form} onSubmit={this.handleFormSubmit}>
-      <div className="form-group">
-      <label htmlFor="park">Park Name:</label>
-      <Input
-          value={this.state.park_id}
-          onChange={this.handleInputChange}
-          name="park_id"
-          list="parks"
-          type="text"
-          className="form-control"
-          placeholder="Type in park name to begin"
-          id="park"
-        />
-        <datalist id="parks">
-          {parksData.map(parksData => (
-          <option value={parksData.park_id}>{JSON.stringify(parksData.park_name).replace(/['"]+/g, '')}</option>)
-          )}
-        </datalist>
+      <Container>
+<Row>
+  <h1 style={{textAlign: 'center'}}>How Was Your Visit?</h1>
+</Row>
 
-        <label htmlFor="overall">Overall Park Quality: (1 = worst, 5 = best)</label>
-        <select id="overall_rating" name="overall_rating" value={this.state.overall_rating} onChange={this.handleInputChange}>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        </select>
-        <br></br>
-        <label htmlFor="accessibility">Accessibility Rating: (1 = worst, 5 = best)</label>
-        <select id="accessibility_rating" name="accessibility_rating" value={this.state.accessibility_rating} onChange={this.handleInputChange}>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        </select>
-        <br></br>
-        <label htmlFor="cleanliness">Cleanliness Rating: (1 = worst, 5 = best)</label>
-        <select id="cleanliness_rating" name="cleanliness_rating" value={this.state.cleanliness_rating} onChange={this.handleInputChange}>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        </select>
-        <br></br>
-        <label htmlFor="activities">Available Activities Rating: (1 = worst, 5 = best)</label>
-        <select id="activities_rating" name="activities_rating" value={this.state.activities_rating} onChange={this.handleInputChange} default="3">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        </select>
-        
-        <br></br>
-        <label htmlFor="review_text">Park Review:</label>
-        <br></br>
-        <Input
-          value={this.state.review_text}
-          onChange={this.handleInputChange}
-          name="review_text"
-          type="text"
-          placeholder="Enter Park Review Here"
-          id="review_text"
-          class="reviewInput"
-        />
-        <br></br>
-        <FormBtn type="submit" className="btn btn-success" >
-          Add Review
-        </FormBtn>
-      </div>
-    </form>
+<Row>
+<div className='jumbotron'>
+<form className="form" onSubmit={this.handleFormSubmit}>
+<div className="form-group">
+<label htmlFor="park">Park Name:</label>
+<Input
+  value={this.state.park_id}
+  onChange={this.handleInputChange}
+  name="park_id"
+  list="parks"
+  type="text"
+  className="form-control"
+  placeholder="Type in park name to begin"
+  id="park"
+/>
+<datalist id="parks">
+  {parksData.map(parksData => (
+  <option value={parksData.park_id}>{JSON.stringify(parksData.park_name).replace(/['"]+/g, '')}</option>)
+  )}
+</datalist>
+
+<label htmlFor="overall">Overall Park Quality: (1 = worst, 5 = best)</label>
+<select id="overall_rating" name="overall_rating" value={this.state.overall_rating} onChange={this.handleInputChange}>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+<br></br>
+<label htmlFor="accessibility">Accessibility Rating: (1 = worst, 5 = best)</label>
+<select id="accessibility_rating" name="accessibility_rating" value={this.state.accessibility_rating} onChange={this.handleInputChange}>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+<br></br>
+<label htmlFor="cleanliness">Cleanliness Rating: (1 = worst, 5 = best)</label>
+<select id="cleanliness_rating" name="cleanliness_rating" value={this.state.cleanliness_rating} onChange={this.handleInputChange}>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+<br></br>
+<label htmlFor="activities">Available Activities Rating: (1 = worst, 5 = best)</label>
+<select id="activities_rating" name="activities_rating" value={this.state.activities_rating} onChange={this.handleInputChange} default="3">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select>
+
+<br></br>
+<label htmlFor="review_text">Park Review:</label>
+<br></br>
+<Input
+  value={this.state.review_text}
+  onChange={this.handleInputChange}
+  name="review_text"
+  type="text"
+  placeholder="Enter Park Review Here"
+  id="review_text"
+  className="reviewInput form-control"
+/>
+<br></br>
+<FormBtn type="submit" className="btn btn-success review" style={styles.review}>
+  Add Review
+</FormBtn>
+</div>
+</form>
+</div>
+</Row>
+</Container>
+
     );
   };
 }
 
 export default AddReview;
+
+

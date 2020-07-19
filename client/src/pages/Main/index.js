@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import style from "./index.css";
 import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI, addReview } from '../../utils/API';
+import { Container, Row, Col } from "react-bootstrap";
+import Profile from '../../components/Profile';
+import key from "./review_key.png";
 
 class Main extends Component {
 
@@ -73,101 +76,98 @@ componentDidMount() {
 
 render(){
   return (
-    <div className="jumbotron">
-      <div className="row">
-      <div className="card">
-        <div>
-        </div>
-      </div>
-
-      <div className="jumbotron text-center">
-      <h1>Three most recent park reviews!</h1>
-    </div>
-
-      <div className="select" style={{display: "inline"}}>
-      <table className="table">
-        <thead>
-          <tr style={{fontWeight: "bold"}}>
-            <td> Park Name </td>
-            <td> Overall Rating </td>
-            <td> Accessibility Rating </td>
-            <td> Cleanliness Rating </td>
-            <td> Activities Rating </td>
-            <td> Park Review </td>
-            <td> Review Submission Time </td>
-          </tr>
-        </thead>
-        <tbody style={{textAlign: "center"}}>
-          <tr>
-            <td> {this.state.parkNameOne}</td>
-            <td> {this.state.overallRatingOne} </td>
-            <td> {this.state.accessibilityRatingOne} </td>
-            <td> {this.state.cleanlinessRatingOne} </td>
-            <td> {this.state.activitiesRatingOne} </td>
-            <td> {this.state.reviewTextOne} </td>
-            <td> {this.state.createdAtOne} </td>
-          </tr>
-          <tr>
-            <td> {this.state.parkNameTwo}</td>
-            <td> {this.state.overallRatingTwo} </td>
-            <td> {this.state.accessibilityRatingTwo} </td>
-            <td> {this.state.cleanlinessRatingTwo} </td>
-            <td> {this.state.activitiesRatingTwo} </td>
-            <td> {this.state.reviewTextTwo} </td> 
-            <td> {this.state.createdAtTwo} </td>
-            </tr>
-            <tr>
-            <td> {this.state.parkNameThree}</td>
-            <td> {this.state.overallRatingThree} </td>
-            <td> {this.state.accessibilityRatingThree} </td>
-            <td> {this.state.cleanlinessRatingThree} </td>
-            <td> {this.state.activitiesRatingThree} </td>
-            <td> {this.state.reviewTextThree} </td>
-            <td> {this.state.createdAtThree} </td>
-            </tr>
-        </tbody>
-      </table>
-      </div>
-      <div className="jumbotron text-center">
-      <h1>Three cool NYC parks!</h1>
-    </div>
-
-      <div className="select" style={{display: "inline"}}>
-      <table className="table">
-        <thead>
-          <tr style={{fontWeight: "bold"}}>
-            <td> Park Name </td>
-            <td> Address </td>
-            <td> Borough </td>
-            <td> Website </td>
-          </tr>
-        </thead>
-        <tbody style={{textAlign: "center"}}>
-          <tr>
-            <td> {this.firstPark.park_name} </td>
-            <td> {this.firstPark.park_location} </td>
-            <td> {this.firstPark.park_borough} </td>
-            <a href={this.firstPark.website}> <td> {this.firstPark.website} </td></a>
-          </tr>
-          <tr>
-            <td> {this.secondPark.park_name} </td>
-            <td> {this.secondPark.park_location}</td>
-            <td> {this.secondPark.park_borough} </td>
-            <a href={this.secondPark.website}> <td> {this.secondPark.website} </td></a>
-          </tr><tr>
-            <td> {this.thirdPark.park_name} </td>
-            <td> {this.thirdPark.park_location} </td>
-            <td> {this.thirdPark.park_borough} </td>
-            <a href={this.thirdPark.website}> <td> {this.thirdPark.website} </td></a>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-
-
-
-      </div>
-    </div>
+    <div>
+      <Container>
+        <Row>
+          <Profile />
+        </Row>
+        <Row style={{overflow: 'scroll'}}>
+        <h1 style={{textAlign: 'center'}}>Recent Reviews</h1>
+          <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr> <td colSpan={4}>{this.state.parkNameOne} </td></tr>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingOne}</td>
+                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingOne}</td>
+                  <td> {this.state.cleanlinessRatingOne}</td>
+                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingOne}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextOne} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtOne} </td></tr>
+              </tbody>
+            </table>
+            </Col>
+            <Col xs={4} md={4}  style={{justifyContent: 'space-around'}}>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr> <td colSpan={4}>{this.state.parkNameTwo} </td></tr>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingTwo}</td>
+                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingTwo}</td>
+                  <td> {this.state.cleanlinessRatingTwo}</td>
+                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingTwo}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextTwo} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtTwo} </td></tr>
+              </tbody>
+            </table>
+            </Col>
+            <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr> <td colSpan={4}>{this.state.parkNameThree} </td></tr>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingThree}</td>
+                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingThree}</td>
+                  <td> {this.state.cleanlinessRatingThree}</td>
+                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingThree}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextThree} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtThree} </td></tr>
+              </tbody>
+            </table>
+            </Col>
+        </Row>
+        <Row className='justify-content-md-center'>
+          <Col Col xs={4} md={4} >
+          <img src={key} alt='review-table-key' />
+          </Col>
+        </Row>
+        <Row>
+        <h1 style={{textAlign: 'center'}}>Check Out These Parks!</h1>
+        </Row>
+        <Row style={{overflow: 'scroll', textAlign: 'center'}}>
+        <Col xs={12} sm={12}>
+          <div style={{display: 'inline'}}>
+            <ul style={{listStyleType:"none"}}>
+            <a href={this.firstPark.website}><li>{this.firstPark.park_name}</li></a>
+              <li> {this.firstPark.park_location} </li>
+              <li> Borough: {this.firstPark.park_borough} </li>
+            </ul>
+          </div>
+        </Col>
+        <Col xs={12} sm={12}>
+          <div style={{display: 'inline'}}>
+            <ul style={{listStyleType:"none"}}>
+            <a href={this.secondPark.website}><li>{this.secondPark.park_name}</li></a>
+              <li> {this.secondPark.park_location} </li>
+              <li> Borough: {this.secondPark.park_borough} </li>
+            </ul>
+          </div>
+        </Col>
+        <Col xs={12} sm={12} >
+          <div style={{display: 'inline'}}>
+            <ul style={{listStyleType:"none"}}>
+            <a href={this.thirdPark.website}><li>{this.thirdPark.park_name}</li></a>
+              <li> {this.thirdPark.park_location} </li>
+              <li> Borough: {this.thirdPark.park_borough} </li>
+            </ul>
+          </div>
+        </Col>
+        </Row>
+    </Container>
+  </div>
 
 
 
@@ -176,3 +176,4 @@ render(){
 }
 
 export default Main;
+
