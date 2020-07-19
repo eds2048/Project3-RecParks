@@ -1,29 +1,11 @@
 import React from "react";
-import Logo from "../nyc_parks.png";
 import { user as userAPI } from '../../utils/API';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../components/Button';
 
 const styles = {
-  card: {
-    background: "#e8eaf6"
-  },
-  heading: {
-    background: "#006400",
-    maxHeight: 50,
-    fontSize: "2.0rem",
-    color: "white",
-    padding: "0 10px",
-    width: "auto"
-  },
-  login: {
-    marginRight: 20,
-    textAlign: "right",
-  },
-  img: {
-    maxHeight: 40,
-    position: "relative",
-    paddingBottom: "3px"
+  navtab: {
+	backgroundColor: "#b4d993",
   }
 };
 
@@ -38,6 +20,7 @@ const signout = () => {
 	};
 let location = useLocation();
     return (
+
 		<div
 			styles={{ padding: 4, color: 'white', lineHeight: '20px' }}
 			className='bg-success'
@@ -55,7 +38,9 @@ let location = useLocation();
 					<Link to='/login'><Button theme='primary'>Log In</Button></Link>
 					<Link to='/signup'><Button theme='primary'>Sign Up</Button></Link></a>
 			}
+
 		</div>
+
 	);
 };
 

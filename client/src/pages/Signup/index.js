@@ -65,7 +65,7 @@ class Signup extends Component {
 			<Container fluid>
 				<Row>
 					<Col size='12'>
-						<Card title='Signup'>
+						<Card>
 							<form className={styles.form} onSubmit={this.handleFormSubmit}>
 								<Input
 									value={this.state.email}
@@ -82,7 +82,7 @@ class Signup extends Component {
 								/>
 								<FormBtn
 									disabled={!(this.state.email && this.state.password)}
-									theme='primary'
+									theme='success'
 								>
 									Sign Up
 								</FormBtn>
