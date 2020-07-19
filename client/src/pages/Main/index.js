@@ -6,6 +6,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import Profile from '../../components/Profile';
 import key from "./review_key.png";
 
+import LeafletMap from "../../components/LeafletMap";
+
+
 class Main extends Component {
 
   firstPark = parksData[Math.floor(Math.random() * Math.floor(1982))]
@@ -76,10 +79,14 @@ componentDidMount() {
 
 render(){
   return (
+
     <div>
       <Container>
         <Row>
           <Profile />
+        </Row>
+        <Row>
+        <LeafletMap></LeafletMap>
         </Row>
         <Row style={{overflow: 'scroll'}}>
         <h1 style={{textAlign: 'center'}}>Recent Reviews</h1>
