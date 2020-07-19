@@ -6,6 +6,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import Profile from '../../components/Profile';
 import key from "./review_key.png";
 
+import LeafletMap from "../../components/LeafletMap";
+
+
 class Main extends Component {
 
   firstPark = parksData[Math.floor(Math.random() * Math.floor(1982))]
@@ -75,69 +78,81 @@ componentDidMount() {
 
 
 render(){
+  
   return (
+
     <div>
       <Container>
         <Row>
-          <Profile />
+          <Profile user={this.props.user}/>
+        </Row>
+        <Row>
+          <Col>
+              <LeafletMap></LeafletMap>
+          </Col>
         </Row>
         <Row style={{overflow: 'scroll'}}>
         <h1 style={{textAlign: 'center'}}>Recent Reviews</h1>
           <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+            <div className='panel panel-default'>
             <table className='table table-responsive table-bordered'>
               <tbody>
                 <tr> <td colSpan={4}>{this.state.parkNameOne} </td></tr>
                 <tr>
-                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingOne}</td>
-                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingOne}</td>
-                  <td> {this.state.cleanlinessRatingOne}</td>
-                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingOne}</td>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingOne}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingOne}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingOne}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingOne}</td>
                 </tr>
                 <tr> <td colSpan={4}>{this.state.reviewTextOne} </td></tr>
                 <tr> <td colSpan={4}>{this.state.createdAtOne} </td></tr>
               </tbody>
             </table>
+            </div>
             </Col>
             <Col xs={4} md={4}  style={{justifyContent: 'space-around'}}>
+            <div className='panel panel-default'>
             <table className='table table-responsive table-bordered'>
               <tbody>
                 <tr> <td colSpan={4}>{this.state.parkNameTwo} </td></tr>
                 <tr>
-                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingTwo}</td>
-                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingTwo}</td>
-                  <td> {this.state.cleanlinessRatingTwo}</td>
-                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingTwo}</td>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingTwo}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingTwo}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingTwo}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingTwo}</td>
                 </tr>
                 <tr> <td colSpan={4}>{this.state.reviewTextTwo} </td></tr>
                 <tr> <td colSpan={4}>{this.state.createdAtTwo} </td></tr>
               </tbody>
             </table>
+            </div>
             </Col>
             <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+            <div className='panel panel-default'>
             <table className='table table-responsive table-bordered'>
               <tbody>
                 <tr> <td colSpan={4}>{this.state.parkNameThree} </td></tr>
                 <tr>
-                  <td style={{backgroundColor: '#7bba4b'}}> {this.state.overallRatingThree}</td>
-                  <td style={{backgroundColor: '#999c9d'}}>{this.state.accessibilityRatingThree}</td>
-                  <td> {this.state.cleanlinessRatingThree}</td>
-                  <td style={{backgroundColor: 'black', color: 'white'}}>{this.state.activitiesRatingThree}</td>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingThree}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingThree}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingThree}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingThree}</td>
                 </tr>
                 <tr> <td colSpan={4}>{this.state.reviewTextThree} </td></tr>
                 <tr> <td colSpan={4}>{this.state.createdAtThree} </td></tr>
               </tbody>
             </table>
+            </div>
             </Col>
         </Row>
         <Row className='justify-content-md-center'>
-          <Col Col xs={4} md={4} >
+          <Col xs={4} md={4} >
           <img src={key} alt='review-table-key' />
           </Col>
         </Row>
-        <Row>
-        <h1 style={{textAlign: 'center'}}>Check Out These Parks!</h1>
-        </Row>
+
         <Row style={{overflow: 'scroll', textAlign: 'center'}}>
+        <h1 style={{textAlign: 'center'}}>Trending Parks!</h1>
         <Col xs={12} sm={12}>
           <div style={{display: 'inline'}}>
             <ul style={{listStyleType:"none"}}>

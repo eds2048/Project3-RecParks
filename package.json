@@ -1,7 +1,7 @@
 {
-  "name": "react-passport-mongo",
+  "name": "Project3",
   "version": "1.0.0",
-  "description": "react-passport-mongo-express",
+  "description": "Project 3",
   "main": "index.js",
   "scripts": {
     "test": "jest --no-cache",
@@ -12,7 +12,7 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "cd client && npm run build",
     "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
   },
   "author": "",
@@ -38,11 +38,13 @@
     "if-env": "^1.0.4",
     "ignore-styles": "^5.0.1",
     "jest": "24.9.0",
+    "leaflet": "^1.6.0",
     "mongoose": "^5.9.20",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-bootstrap": "^1.2.2",
+    "react-leaflet": "^2.7.0",
     "react-router-dom": "^5.2.0",
     "sequelize": "^5.22.3",
     "uninstall": "0.0.0"

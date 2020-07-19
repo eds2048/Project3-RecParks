@@ -15,11 +15,22 @@ module.exports = {
 
             // user found
 				} else {
-               console.log(`login: `, req.user.email);
-               
-               // save user to session to match on login
-               req.session.user = req.user;
-					return res.json(req.user);
+               db.Review.findAll({
+                  where: {
+                     user_id: req.user.id
+                  },
+                  raw: true,
+                  nest: true,
+               }).then( data => {
+                  req.user.dataValues.reviews = data;
+                  console.log(req.user);
+                  
+                  console.log(`login: `, req.user.email); 
+                  // save user to session to match on login
+                  req.session.user = req.user;
+                  return res.json(req.user);
+               });
+
 				}
          // });
 
@@ -60,6 +71,12 @@ module.exports = {
    
    // authenticate user
 	authenticate: (req, res, next) => {
-      req.user ? res.json(req.user) : res.status(204).send();
+      if (req.session.user) { 
+         res.json(req.session.user)
+      }
+      else {
+         res.status(204).send()
+      }
+      // req.user ? res.json(req.user) : res.status(204).send();
    },
 };

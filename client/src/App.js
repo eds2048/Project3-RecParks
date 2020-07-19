@@ -5,13 +5,12 @@ import ParkReviews from './pages/ParkReviews';
 import AddReview from './pages/AddReview';
 
 import Main from './pages/Main';
-import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import NoMatch from './pages/NoMatch';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
-import { user as userAPI } from "./utils/API";
+import { user as userAPI , addReview as reviewAPI} from "./utils/API";
 import './App.css';
 
 function App() {
@@ -22,11 +21,20 @@ function App() {
    useEffect(() => {
 		// no catch, add if you want to check for it.
 		// only setting user if we got one, to avoid rerendering the page.
-		userAPI.authenticate()
+		if (!user) {
+			userAPI.authenticate()
 			.then(res => res.data ? setUser(res.data) : 0)
 			// repress the authenticate route error if recieved one.
 			.catch(e => console.log(e))
-   }, []);
+		}
+		else {
+			reviewAPI.lastThreeParks()
+			.then(result => console.log(result));
+		}
+		
+   }, [user]);
+
+
    
 	return (
 			<Router>

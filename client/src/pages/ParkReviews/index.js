@@ -4,6 +4,8 @@ import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI } from '../../utils/API';
 import { Input, FormBtn } from '../../components/Form';
 import { Button } from '../../components/Button';
+import { Container, Row, Col } from 'react-bootstrap';
+import key from '../Main/review_key.png';
 
 class ParkReviews extends Component {
 
@@ -100,17 +102,15 @@ class ParkReviews extends Component {
 
 render(){
   return (
-    <div className="jumbotron">
-      
-      <div className="jumbotron text-center">
-      <h1>View Park Reviews!</h1>
-    </div>
-      <div className="row">
-      <div className="card">
-        <div>
-        </div>
-      </div>
+    <Container>
+    <div>
+      <Row>
+      <h1 className='header'>View Park Reviews!</h1>
+      </Row>
 
+      <Row className="jumbotron">
+      <Row>
+        <Col xs={12} sm={12}>
       <label htmlFor="park">Park Name:</label>
       <Input
           value={this.state.park_id}
@@ -118,7 +118,7 @@ render(){
           name="park_id"
           list="parks"
           type="text"
-          className="form-control"
+          className="form-control review-input"
           placeholder="Type in park name to begin"
           id="park"
         />
@@ -132,8 +132,77 @@ render(){
 				?  <a> <Button theme='primary' onClick={() => this.parkSelection([this.state.park_id])}>View Reviews</Button> </a>
         : <a></a>
         }
+        </Col>
+        </Row>
+        <Row style={{overflow: 'scroll'}}>
+        <h1 style={{textAlign: 'center'}}>{this.state.parkNameOne}</h1>
+          <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+          <div className='panel panel-default'>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingOne}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingOne}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingOne}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingOne}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextOne} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtOne} </td></tr>
+              </tbody>
+            </table>
+            </div>
+            </Col>
+            <Col xs={4} md={4}  style={{justifyContent: 'space-around'}}>
+            <div className='panel panel-default'>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingTwo}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingTwo}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingTwo}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingTwo}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextTwo} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtTwo} </td></tr>
+              </tbody>
+            </table>
+            </div>
+            </Col>
+            <Col xs={4} md={4} style={{justifyContent: 'space-around'}}>
+            <div className='panel panel-default'>
+            <table className='table table-responsive table-bordered'>
+              <tbody>
+                <tr>
+                  <td style={{backgroundColor: '#7bba4b', textAlign: 'center'}}> {this.state.overallRatingThree}</td>
+                  <td style={{backgroundColor: '#999c9d', textAlign: 'center'}}>{this.state.accessibilityRatingThree}</td>
+                  <td style={{textAlign: 'center'}}> {this.state.cleanlinessRatingThree}</td>
+                  <td style={{backgroundColor: 'black', color: 'white', textAlign: 'center'}}>{this.state.activitiesRatingThree}</td>
+                </tr>
+                <tr> <td colSpan={4}>{this.state.reviewTextThree} </td></tr>
+                <tr> <td colSpan={4}>{this.state.createdAtThree} </td></tr>
+              </tbody>
+            </table>
+            </div>
+            </Col>
+        </Row>
+        <Row className='justify-content-md-center'>
+          <Col Col xs={4} md={4} >
+          <img src={key} alt='review-table-key' />
+          </Col>
+        </Row>
+        
+</Row>
 
+</div> 
+</Container>
 
+  );
+}
+}
+
+export default ParkReviews;
+
+{/* <Row>
       <h1>{this.state.parkNameOne}</h1>
     
       <div className="select" style={{display: "inline"}}>
@@ -176,11 +245,4 @@ render(){
         </tbody>
       </table>
       </div>
-  </div>
-</div>
-
-  );
-}
-}
-
-export default ParkReviews;
+  </Row> */}
