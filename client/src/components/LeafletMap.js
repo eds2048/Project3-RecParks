@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Map as LeafletMap, Marker, Popup, TileLayer, Polyline, CircleMarker, Tooltip } from 'react-leaflet'
+import React, { useState, useEffect, useRef } from 'react';
+import { Map as LeafletMap, Marker, Popup, TileLayer, Polyline, CircleMarker, Tooltip } from 'react-leaflet';
 // import L from "leaflet"
  
 export default function Map(props) {

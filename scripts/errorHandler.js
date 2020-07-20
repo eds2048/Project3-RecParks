@@ -7,6 +7,7 @@ module.exports = function (error, req, res, next) {
       return next(error)
     }
     console.log(`error ${error.message} will be sent`);
+    console.log(error)
     // if no status code return code 500
     if(!error.statusCode) error.statusCode = 500;
     res.json(error.message.toString())

@@ -8,7 +8,5 @@ ul {
 }
 
 .profile {
-    background-image: url('../../pages/nyc_parks.png');
-    background-repeat: no-repeat;
-    background-position: center;
+    text-align: center;
 }

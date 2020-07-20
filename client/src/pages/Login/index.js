@@ -47,10 +47,10 @@ class Login extends Component {
 				.catch(res => {
 					this.props.setLoading(false);
 					console.warn(res.response.data);
-					this.props.setAlertInfo({
-						theme: 'warning',
-						message: res.response.data
-					});
+					// this.props.setAlertInfo({
+					// 	theme: 'warning',
+					// 	message: res.response.data
+					// });
 				});
 		}
 	};

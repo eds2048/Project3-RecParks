@@ -29,6 +29,11 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.FLOAT,
         allowNull: false,
         unique: false
+      },
+      user_id: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          unique: false
       }
     });
     return Review
