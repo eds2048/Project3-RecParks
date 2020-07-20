@@ -5,9 +5,7 @@ import parksData from '../../data/Parks.json';
 import { addReview as reviewAPI } from '../../utils/API';
 import { Input, FormBtn } from '../../components/Form';
 
-import {Container, Row, Col } from "react-bootstrap";
-import Background from "../parks_login.jpg";
-import logo from '../nyc_parks.png';
+import { Container, Row } from "react-bootstrap";
 
 
 class AddReview extends Component {
