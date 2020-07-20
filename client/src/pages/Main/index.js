@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from "./index.css";
 import parksData from '../../data/Parks.json';
-import { addReview as reviewAPI } from '../../utils/API';
+import { addReview as reviewAPI , user as userAPI} from '../../utils/API';
 import { Container, Row, Col } from "react-bootstrap";
 import Profile from '../../components/Profile';
 import key from "./review_key.png";
@@ -38,13 +38,14 @@ class Main extends Component {
       reviewtextTwo: [],
       reviewtextThree: []
     };
-  }
+  };
 
 componentDidMount() {
   let threeParksData = this;
 
   reviewAPI.lastThreeParks()
    .then((result)=> {
+    console.log(result);
         this.setState({ 
           parkIDOne: result.data[0].park_id,
           parkIDTwo: result.data[1].park_id,
@@ -74,7 +75,6 @@ componentDidMount() {
       })
        .catch(err => {console.log(err)});
 };
-
 
 
 render(){
@@ -148,14 +148,6 @@ render(){
             </div>
             </Col>
         </Row>
-        <Row>
-          <Col>
-          <div className='text-center'>
-          <img src={key} alt='review-table-key' />
-          </div>
-          </Col>
-        </Row>
-
         <Row style={{overflow: 'scroll', textAlign: 'center'}}>
         <h1 style={{textAlign: 'center'}}>Trending Parks!</h1>
         <Col xs={12} sm={12}>

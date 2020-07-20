@@ -10,3 +10,8 @@ ul {
 .profile {
     text-align: center;
 }
+
+.key {
+    max-height: 150px;
+}
+
