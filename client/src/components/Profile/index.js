@@ -14,31 +14,27 @@ function Profile(props) {
                     <p>Member Since {props.user.createdAt}</p>
                 </Row>
                 <Row>
-                    <Col xs={4} sm={4} md={3}>
-                        <div className='profile'>
+                    <Col>
+                        <div className={style.profile}>
                         <img src={logo} alt='profile-pic' />
                         </div>
                     </Col>
                     <Col xs={6} sm={6} md={9}>
-                        <div>
+                        {/* <div>
 
                             <ul className='list'>
                             <h4 style={{fontWeight: 'bold'}}> Parks I've Reviewed </h4>
-                                <li> Park Id: </li>
-                                <li> Review:  </li>
-                                <li> Submission Time: </li>
+                                <li> Park Id: {props.user.reviews[0].park_id} </li>
+                                <li> Review:  {props.user.reviews[0].review_text} </li>
+                                <li> Overall Rating: {props.user.reviews[0].overall_rating} </li>
                             </ul>
                             <ul>
-                                <li> Park Name:  </li>
-                                <li> Review:  </li>
-                                <li> Submission Time:</li>
+                                <li> Park Id: {props.user.reviews[1].park_id} </li>
+                                <li> Review:  {props.user.reviews[1].review_text} </li>
+                                <li> Overall Rating: {props.user.reviews[1].overall_rating} </li>
                             </ul>
-                            <ul>
-                                <li> Park Name: </li>
-                                <li> Review:  </li>
-                                <li> Submission Time:</li>
-                            </ul>
-                        </div>
+                        </div> */}
+
                     </Col>
             </Row>
             <Row>

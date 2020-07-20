@@ -6,7 +6,6 @@ import { Input, FormBtn } from '../../components/Form';
 import Card from '../../components/Card';
 import styles from './index.css';
 import validateUser from "../../utils/validateUser";
-import Background from "../parks_login.jpg";
 
 class Login extends Component {
 	constructor(props) {

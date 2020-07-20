@@ -2,13 +2,7 @@ import React from "react";
 import { user as userAPI } from '../../utils/API';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../components/Button';
-import Logo from '../../pages/nyc_parks.png';
 
-const styles = {
-  navtab: {
-	backgroundColor: "#b4d993",
-  }
-};
 
 function Navbar(props) {
 const signout = () => {

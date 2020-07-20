@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import style from "./index.css";
 import parksData from '../../data/Parks.json';
-import { addReview as reviewAPI, addReview } from '../../utils/API';
+import { addReview as reviewAPI } from '../../utils/API';
 import { Container, Row, Col } from "react-bootstrap";
 import Profile from '../../components/Profile';
 import key from "./review_key.png";
@@ -84,7 +84,10 @@ render(){
     <div>
       <Container>
         <Row>
-          <Profile user={this.props.user}/>
+          {!this.props.user
+          ? null
+          : <Profile user={this.props.user}/>
+          }
         </Row>
         <Row>
           <Col>
@@ -145,9 +148,11 @@ render(){
             </div>
             </Col>
         </Row>
-        <Row className='justify-content-md-center'>
-          <Col xs={4} md={4} >
+        <Row>
+          <Col>
+          <div className='text-center'>
           <img src={key} alt='review-table-key' />
+          </div>
           </Col>
         </Row>
 
