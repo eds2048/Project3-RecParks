@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Review-related Axios calls
 export default {
   addReview: function (review) {
     return axios.post("/api/review/addReview", review)

@@ -7,6 +7,8 @@ import { Col, Row, Container } from '../../components/Grid';
 import { user as userAPI } from '../../utils/API';
 import validateUser from "../../utils/validateUser";
 
+//Signup script initially adapted from boilerplate
+
 class Signup extends Component {
 	constructor(props) {
 		super(props);
@@ -27,14 +29,14 @@ class Signup extends Component {
 		event.preventDefault();
 		this.props.setLoading(true);
     
-    // validate all fields
+ //Field checking
     if (!this.state.email || !this.state.password) {
 		  this.props.setLoading(false);
-      // set error alert to user
+// Send alert if incomplete fields
       return this.props.setAlertInfo({theme:"warning", message:"Please fill all required fields"})
     }
 
-    // if good to go
+// Send if scripts are valid
 		userAPI
 				.signup({
 					email: this.state.email.trim(),

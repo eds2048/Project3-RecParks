@@ -1,4 +1,4 @@
-// ! you can chain a .post().put() and so on in every route.
+// Passport routes
 
 const router = require('express').Router();
 const userFunctions = require('../controllers/user')

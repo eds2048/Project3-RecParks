@@ -1,3 +1,4 @@
+// User design for sequelize
 // get reference to DB 
 const db = require('../../models');
 module.exports = {
@@ -31,10 +32,9 @@ module.exports = {
                   return res.json(req.user);
                });
 
-				}
-         // });
-
-      // request missing fields
+            }
+            
+      // Require Fields
 		} else {
 			var err = new Error('All fields required.');
 			err.status = 400;
@@ -42,34 +42,35 @@ module.exports = {
 		}
    },
 
-   // signup user
+   // Sign Up
    create: (req, res, next) => {
-      // create user in db
+      // Create User
       db.User.create({
          email: req.body.email,
          password: req.body.password
       })
 
-      // redirect to login
+      // Redirect to login
       .then(user =>  res.json(user))
       .catch(err => {
             res.status(401);
             next(err)
       });
    },
-      
+     
+   //Sign Out
    signout: (req, res) => {
       console.log('signed out:', req.user.email )
-      // destroy session
+      // Destroy Session
       req.session.destroy();
-      // clear cookie on the client side
+      // Clear cookie on the client side
       res
          .status(200)
          .clearCookie('__id')
          .json({msg:'successfuly signed out'});
    },
    
-   // authenticate user
+   // Authenticate user
 	authenticate: (req, res, next) => {
       if (req.session.user) { 
          res.json(req.session.user)
@@ -77,6 +78,5 @@ module.exports = {
       else {
          res.status(204).send()
       }
-      // req.user ? res.json(req.user) : res.status(204).send();
    },
 };

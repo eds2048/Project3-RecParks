@@ -28,7 +28,7 @@ class Login extends Component {
 		if (this.state.email && this.state.password) {
 			console.log(this.state.email);
 
-			// set loading state
+// Set loading state (loadingstate borrowed)
 			this.props.setLoading(true);
 
 			userAPI
@@ -46,10 +46,6 @@ class Login extends Component {
 				.catch(res => {
 					this.props.setLoading(false);
 					console.warn(res.response.data);
-					// this.props.setAlertInfo({
-					// 	theme: 'warning',
-					// 	message: res.response.data
-					// });
 				});
 		}
 	};
@@ -87,7 +83,7 @@ class Login extends Component {
 				</Row>
 				<Row>
 					<Col size='12'>
-					{/* <img src={Background} style={{height: 300, width: "auto"}}/> */}
+					{}
 					</Col>
 				</Row>
 
