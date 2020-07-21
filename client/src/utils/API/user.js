@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//Axios passport routes
 export default {
   login: function (user) {
     return axios.post("/api/user/login", user)

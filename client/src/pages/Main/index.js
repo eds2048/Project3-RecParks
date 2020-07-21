@@ -17,7 +17,7 @@ class Main extends Component {
 
   constructor(props) {
     super(props);
-
+//State variables
     this.state = {
       parkNameOne: [],
       parkNameTwo: [],
@@ -43,6 +43,7 @@ class Main extends Component {
 componentDidMount() {
   let threeParksData = this;
 
+//Pull the three most recent park reviews
   reviewAPI.lastThreeParks()
    .then((result)=> {
     console.log(result);
@@ -68,6 +69,7 @@ componentDidMount() {
           createdAtOne: result.data[0].createdAt,
           createdAtTwo: result.data[1].createdAt,
           createdAtThree: result.data[2].createdAt,
+//Matching the park_ids
           parkNameOne: parksData[(result.data[0].park_id)-1].park_name,
           parkNameTwo: parksData[(result.data[1].park_id)-1].park_name,
           parkNameThree: parksData[(result.data[2].park_id)-1].park_name
@@ -78,9 +80,7 @@ componentDidMount() {
 
 
 render(){
-  
   return (
-
     <div>
       <Container>
         <Row>
@@ -180,9 +180,6 @@ render(){
         </Row>
     </Container>
   </div>
-
-
-
   );
 }
 }

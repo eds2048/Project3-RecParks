@@ -34,21 +34,12 @@ class AddReview extends Component {
 
 		event.preventDefault();
     
-    // validate all fields
+    // Field validation
     if (!this.state.park_id || !this.state.overall_rating)  {
 		  this.props.setLoading(false);
-      // set error alert to user
-      // return this.props.setAlertInfo({theme:"warning", message:"Please fill all required fields"})
-    }
+      }
 
-   
-    console.log(this.state.park_id.trim(),
-    this.state.overall_rating,
-    this.state.accessibility_rating,
-    this.state.cleanliness_rating,
-    this.state.activities_rating,
-    this.state.review_text.trim())
-    // if good to go
+    // On field validation, add the review
     reviewAPI
 				.addReview({
 					park_id: this.state.park_id.trim(),
@@ -58,6 +49,7 @@ class AddReview extends Component {
           activities_rating: this.state.activities_rating,
           review_text: this.state.review_text.trim()
         })
+    //Redirecting scripts
 				.then(res => {
           console.log("success")
           return <Redirect to={'/home'} />;
@@ -65,22 +57,21 @@ class AddReview extends Component {
 				.catch(res => {
           console.log("failure")
           return <Redirect to={'/home'} />;
-					// this.props.setAlertInfo({ theme: 'warning', message: res.response.data });
-				});
+					});
 	};
 
   render() {
     return (
-      <Container>
-<Row>
-  <h1 style={{textAlign: 'center'}}>How Was Your Visit?</h1>
-</Row>
+<Container>
+    <Row>
+      <h1 style={{textAlign: 'center'}}>How Was Your Visit?</h1>
+    </Row>
 
 <Row>
-<div className='jumbotron'>
-<form className="form" onSubmit={this.handleFormSubmit}>
-<div className="form-group">
-<label htmlFor="park">Park Name:</label>
+  <div className='jumbotron'>
+      <form className="form" onSubmit={this.handleFormSubmit}>
+  <div className="form-group">
+  <label htmlFor="park">Park Name:</label>
 <Input
   value={this.state.park_id}
   onChange={this.handleInputChange}
@@ -98,63 +89,62 @@ class AddReview extends Component {
 </datalist>
 
 <label htmlFor="overall">Overall Park Quality: (1 = worst, 5 = best)</label>
-<select id="overall_rating" name="overall_rating" value={this.state.overall_rating} onChange={this.handleInputChange}>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+  <select id="overall_rating" name="overall_rating" value={this.state.overall_rating} onChange={this.handleInputChange}>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 <br></br>
 <label htmlFor="accessibility">Accessibility Rating: (1 = worst, 5 = best)</label>
-<select id="accessibility_rating" name="accessibility_rating" value={this.state.accessibility_rating} onChange={this.handleInputChange}>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+  <select id="accessibility_rating" name="accessibility_rating" value={this.state.accessibility_rating} onChange={this.handleInputChange}>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 <br></br>
 <label htmlFor="cleanliness">Cleanliness Rating: (1 = worst, 5 = best)</label>
-<select id="cleanliness_rating" name="cleanliness_rating" value={this.state.cleanliness_rating} onChange={this.handleInputChange}>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+  <select id="cleanliness_rating" name="cleanliness_rating" value={this.state.cleanliness_rating} onChange={this.handleInputChange}>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
 <br></br>
 <label htmlFor="activities">Available Activities Rating: (1 = worst, 5 = best)</label>
-<select id="activities_rating" name="activities_rating" value={this.state.activities_rating} onChange={this.handleInputChange} default="3">
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-</select>
+  <select id="activities_rating" name="activities_rating" value={this.state.activities_rating} onChange={this.handleInputChange} default="3">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+<br></br>
 
-<br></br>
 <label htmlFor="review_text">Park Review:</label>
-<br></br>
-<Input
-  value={this.state.review_text}
-  onChange={this.handleInputChange}
-  name="review_text"
-  type="text"
-  placeholder="Enter Park Review Here"
-  id="review_text"
-  className="reviewInput form-control"
-/>
-<br></br>
-<FormBtn type="submit" className="btn btn-success review" style={styles.review}>
-  Add Review
-</FormBtn>
-</div>
+  <br></br>
+    <Input
+      value={this.state.review_text}
+      onChange={this.handleInputChange}
+      name="review_text"
+      type="text"
+      placeholder="Enter Park Review Here"
+      id="review_text"
+      className="reviewInput form-control"
+    />
+  <br></br>
+  <FormBtn type="submit" className="btn btn-success review" style={styles.review}>
+    Add Review
+  </FormBtn>
+  </div>
 </form>
 </div>
 </Row>
 </Container>
-
     );
   };
 }

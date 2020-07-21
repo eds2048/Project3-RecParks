@@ -11,7 +11,7 @@ class ParkReviews extends Component {
 
   constructor(props) {
     super(props);
-
+//State variables
     this.state = {
       parkIDOne:[],
       parkNameOne: [],
@@ -50,6 +50,7 @@ class ParkReviews extends Component {
     });
   }  
 
+//Show the last five reviews for the selected park
   parkSelection = event => {
   reviewAPI.pullParkReviews(this.state.park_id)
    .then((result)=> {
@@ -127,7 +128,7 @@ render(){
           <option hidden selected value = {parksData.park_id}>{JSON.stringify(parksData.park_name).replace(/['"]+/g, '')}</option>)
           )}
         </datalist>
-
+{/* If a park ID is selected, then allow an onClick to pull reviews */}
         { (this.state.park_id !== '') 
 				?  <a> <Button theme='primary' onClick={() => this.parkSelection([this.state.park_id])}>View Reviews</Button> </a>
         : <a></a>
@@ -201,48 +202,3 @@ render(){
 }
 
 export default ParkReviews;
-
-{/* <Row>
-      <h1>{this.state.parkNameOne}</h1>
-    
-      <div className="select" style={{display: "inline"}}>
-      <table className="table">
-        <thead>
-          <tr style={{fontWeight: "bold"}}>
-            <td> Overall Rating </td>
-            <td> Accessibility Rating </td>
-            <td> Cleanliness Rating </td>
-            <td> Activities Rating </td>
-            <td> Park Review </td>
-            <td> Review Submission Time </td>
-          </tr>
-        </thead>
-        <tbody style={{textAlign: "center"}}>
-          <tr>
-            <td> {this.state.overallRatingOne} </td>
-            <td> {this.state.accessibilityRatingOne} </td>
-            <td> {this.state.cleanlinessRatingOne} </td>
-            <td> {this.state.activitiesRatingOne} </td>
-            <td> {this.state.reviewTextOne} </td>
-            <td> {this.state.createdAtOne} </td>
-          </tr>
-          <tr>
-            <td> {this.state.overallRatingTwo} </td>
-            <td> {this.state.accessibilityRatingTwo} </td>
-            <td> {this.state.cleanlinessRatingTwo} </td>
-            <td> {this.state.activitiesRatingTwo} </td>
-            <td> {this.state.reviewTextTwo} </td> 
-            <td> {this.state.createdAtTwo} </td>
-            </tr>
-            <tr>
-            <td> {this.state.overallRatingThree} </td>
-            <td> {this.state.accessibilityRatingThree} </td>
-            <td> {this.state.cleanlinessRatingThree} </td>
-            <td> {this.state.activitiesRatingThree} </td>
-            <td> {this.state.reviewTextThree} </td>
-            <td> {this.state.createdAtThree} </td>
-            </tr>
-        </tbody>
-      </table>
-      </div>
-  </Row> */}

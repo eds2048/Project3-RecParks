@@ -7,7 +7,7 @@ module.exports = {
       }
       else {
          console.log(req.user)
-         // create user in db
+         // Create Review
          db.Review.create({
             park_id: req.body.park_id,
             review_text: req.body.review_text,
@@ -18,7 +18,7 @@ module.exports = {
             user_id: req.user.id
          })
    
-         // redirect to login
+         // Redirect to login
          .then(user =>  res.json(user))
          .catch(err => {
                res.status(401);
@@ -27,6 +27,7 @@ module.exports = {
       }
    },
 
+   // Script to render three most recent reviews
    lastThreeReviews: (req, res) => {
        return new Promise ((resolve, reject) => {
          db.Review.findAll({
@@ -39,8 +40,10 @@ module.exports = {
 })
 },
 
+   // Pull reviews corresponding to specific park 
    pullParkReviews: (req, res) => {
    return new Promise ((resolve, reject) => {
+   // Specific park
      db.Review.findAll({
       where: {park_id: req.body.park_id}
    })
