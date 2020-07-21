@@ -19,14 +19,15 @@ const session = require('express-session');
 const initSession = require('./scripts/initSession');
 const errorHandler = require('./scripts/errorHandler');
 
-// initialize session memory.
-app.use(initSession(session));
+//Sessions
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+//Secret key for session
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+//Passport
 app.use(passport.initialize());
 app.use(passport.session());
-
-// parse body middleware.
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Serve static assets
 if (process.env.NODE_ENV === 'production') {
